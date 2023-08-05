@@ -1,0 +1,5 @@
+{
+  "*": "prettier -c",
+  "*.?(c|m)@(j|t)s": "eslint",
+  "*.md": "markdownlint"
+}
