@@ -10,7 +10,7 @@ dependencies:
     version: 7.22.9(@babel/core@7.22.9)(eslint@8.48.0)
   '@babel/eslint-plugin':
     specifier: ^7.22.5
-    version: 7.22.5(@babel/eslint-parser@7.22.9)(eslint@8.48.0)
+    version: 7.22.10(@babel/eslint-parser@7.22.9)(eslint@8.48.0)
   '@babel/preset-env':
     specifier: ^7.22.9
     version: 7.22.10(@babel/core@7.22.9)
@@ -135,12 +135,12 @@ packages:
       semver: 6.3.1
     dev: false
 
-  /@babel/eslint-plugin@7.22.5(@babel/eslint-parser@7.22.9)(eslint@8.48.0):
-    resolution: {integrity: sha512-lDXW06rf1sXywWWw+UdS/iYxRjrqhH4AXdPeKE4+fEgEoGBXcdIDQ+uCJOUcvCb0jCTvfwHOSXkwnfd24EAkLQ==}
+  /@babel/eslint-plugin@7.22.10(@babel/eslint-parser@7.22.9)(eslint@8.48.0):
+    resolution: {integrity: sha512-SRZcvo3fnO5h79B9DZSV6LG2vHH7OWsSNp1huFLHsXKyytRG413byQk9zxW1VcPOhnzfx2VIUz+8aGbiE7fOkA==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
-      '@babel/eslint-parser': '>=7.11.0'
-      eslint: '>=7.5.0'
+      '@babel/eslint-parser': ^7.11.0
+      eslint: ^7.5.0 || ^8.0.0
     dependencies:
       '@babel/eslint-parser': 7.22.9(@babel/core@7.22.9)(eslint@8.48.0)
       eslint: 8.48.0
