@@ -5,7 +5,7 @@ import { svelteConfig } from "./configs/svelte.js";
 import { typescriptConfig } from "./configs/typescript.js";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
-export const garavestConfig = [
+export const garavest = [
   {
     ignores: [".svelte-kit/*"],
     linterOptions: {

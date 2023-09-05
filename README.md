@@ -17,10 +17,10 @@ If you don't intend to extend (or modify) our config, you can simply export it, 
 use it as is.
 
 ```js
-import { garavestConfig } from "@garavest/eslint-config";
+import { garavest } from "@garavest/eslint-config";
 
 /** @type {import("eslint").Linter.FlatConfig} */
-export default garavestConfig;
+export default garavest;
 ```
 
 ### Extended Usage
@@ -29,11 +29,11 @@ If you **do** wish to extend (or modify) our config, you will need to export an 
 config spread in it as shown below:
 
 ```js
-import { garavestConfig } from "@garavest/eslint-config";
+import { garavest } from "@garavest/eslint-config";
 
 /** @type {import("eslint").Linter.FlatConfig} */
 export default [
-  ...garavestConfig
+  ...garavest
   // Your other configuration can go here
 ];
 ```
