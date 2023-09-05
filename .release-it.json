@@ -7,12 +7,17 @@
     "release": true
   },
   "hooks": {
-    "after:bump": "npx auto-changelog -p --template ./changelog.hbs",
     "before:init": ["git pull", "npm run lint"]
   },
   "npm": {
     "publish": true,
     "versionArgs": ["--allow-same-version"]
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md"
+    }
   },
   "publishConfig": {
     "access": "public"
