@@ -1,0 +1,21 @@
+name: Code Quality Checks
+on:
+  push:
+  pull_request:
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+      - name: Setup Node 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          registry-url: https://registry.npmjs.org
+      - name: Install the dependencies
+        run: npm i
+      - name: Lint the code
+        run: npm run lint:code
+      - name: Check code format
+        run: npm run lint:format
