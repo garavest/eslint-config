@@ -22,7 +22,7 @@ jobs:
       - name: Install the dependencies
         run: npm ci
       - name: Do the release
-        run: npm run release --ci --npm.skipChecks
+        run: npm run release --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
