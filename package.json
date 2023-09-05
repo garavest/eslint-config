@@ -24,6 +24,7 @@
     "lint": "npm run lint:code && npm run lint:format",
     "lint:code": "eslint .",
     "lint:format": "prettier -c .",
+    "release": "release-it",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "prettier": "@garavest/prettier-config",
@@ -51,6 +52,7 @@
     "lint-staged": "^14.0.1",
     "markdownlint": "^0.30.0",
     "markdownlint-cli": "^0.36.0",
+    "release-it": "^16.1.5",
     "svelte": "^4.2.0"
   }
 }
