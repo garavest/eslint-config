@@ -11,7 +11,8 @@
     "before:init": ["git pull", "npm run lint"]
   },
   "npm": {
-    "publish": true
+    "publish": true,
+    "versionArgs": ["--allow-same-version"]
   },
   "publishConfig": {
     "access": "public"
