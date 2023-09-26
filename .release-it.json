@@ -7,9 +7,9 @@
     "release": true
   },
   "hooks": {
-    "before:init": ["git pull", "npm run lint"],
+    "before:init": ["git pull", "npm run lint", "npm run build"],
     "after:bump": [
-      "npx auto-changelog -p --template https://raw.githubusercontent.com/cookpete/auto-changelog/master/templates/keepachangelog.hbs"
+      "pnpx auto-changelog -p --template https://raw.githubusercontent.com/cookpete/auto-changelog/master/templates/keepachangelog.hbs"
     ]
   },
   "npm": {
