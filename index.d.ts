@@ -1,3 +1,7 @@
+declare module "lib/configs/global" {
+  /** @type {import("eslint").Linter.FlatConfig} */
+  export const globalConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+}
 declare module "lib/globs/files" {
   export const javascriptFiles: string[];
   export const svelteFiles: string[];
@@ -148,24 +152,15 @@ declare module "lib/rules/javascript" {
     )[];
   };
 }
-declare module "lib/globs/import-plugin" {
-  export const noUnassignedImportAllow: string[];
-}
-declare module "lib/rules/plugins/import" {
-  export const importRules: any;
-}
-declare module "lib/rules/plugins/prettier" {
-  export const prettierRules: any;
-}
 declare module "lib/configs/javascript" {
   /** @type {import("eslint").Linter.FlatConfig} */
-  export const garavestJavascriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+  export const javascriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "lib/rules/plugins/svelte" {
   export const svelteRules: {
-    "svelte/no-target-blank": string;
     "import/extensions": string;
     "import/no-unresolved": string;
+    "svelte/no-target-blank": string;
     "svelte/comment-directive": string;
     "svelte/no-at-debug-tags": string;
     "svelte/no-at-html-tags": string;
@@ -331,9 +326,6 @@ declare module "lib/rules/typescript/base" {
     "@typescript-eslint/unified-signatures": string;
   };
 }
-declare module "lib/rules/typescript/import" {
-  export const typescriptImportRules: any;
-}
 declare module "lib/rules/typescript/overrides" {
   export const typescriptOverrideRules: {
     camelcase: string;
@@ -351,17 +343,31 @@ declare module "lib/rules/typescript/overrides" {
 }
 declare module "lib/configs/svelte" {
   /** @type {import("eslint").Linter.FlatConfig} */
-  export const garavestSvelteConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+  export const svelteConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+}
+declare module "lib/configs/prettier" {
+  /** @type {import("eslint").Linter.FlatConfig} */
+  export const prettierConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "lib/configs/typescript" {
   /** @type {import("eslint").Linter.FlatConfig} */
-  export const garavestTypescriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+  export const typescriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "index" {
+  export namespace garavest {
+    export { defaultConfig as default };
+    export { globalConfig as global };
+    export { javascriptConfig as javascript };
+    export { prettierConfig as prettier };
+    export { svelteConfig as svelte };
+    export { typescriptConfig as typescript };
+  }
   /** @type {import("eslint").Linter.FlatConfig[]} */
-  export const garavestDefaultConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig[];
-  import { garavestJavascriptConfig } from "lib/configs/javascript.js";
-  import { garavestSvelteConfig } from "lib/configs/svelte.js";
-  import { garavestTypescriptConfig } from "lib/configs/typescript.js";
-  export { garavestJavascriptConfig, garavestSvelteConfig, garavestTypescriptConfig };
+  const defaultConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig[];
+  import { globalConfig } from "lib/configs/global.js";
+  import { javascriptConfig } from "lib/configs/javascript.js";
+  import { prettierConfig } from "lib/configs/prettier.js";
+  import { svelteConfig } from "lib/configs/svelte.js";
+  import { typescriptConfig } from "lib/configs/typescript.js";
+  export {};
 }

@@ -1,4 +1,4 @@
-import { garavestDefaultConfig } from "./index.js";
+import { garavest } from "./index.js";
 
 /** @type {import("eslint").Linter.FlatConfig} */
-export default garavestDefaultConfig;
+export default garavest.default;

@@ -7,14 +7,18 @@
     "release": true
   },
   "hooks": {
-    "before:init": ["git pull", "npm run lint", "npm run build"],
-    "after:bump": [
-      "pnpx auto-changelog -p --template https://raw.githubusercontent.com/cookpete/auto-changelog/master/templates/keepachangelog.hbs"
-    ]
+    "before:init": ["git pull", "npm run lint", "npm run build"]
   },
   "npm": {
-    "publish": true,
-    "versionArgs": ["--allow-same-version"]
+    "publish": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": {
+        "name": "conventionalcommits"
+      },
+      "infile": "CHANGELOG.md"
+    }
   },
   "publishConfig": {
     "access": "public"
