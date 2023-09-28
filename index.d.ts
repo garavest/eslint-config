@@ -1,3 +1,9 @@
+declare module "lib/globs/ignores" {
+  export const globalIgnores: string[];
+  export const javascriptIgnores: string[];
+  export const svelteIgnores: string[];
+  export const typescriptIgnores: string[];
+}
 declare module "lib/configs/global" {
   /** @type {import("eslint").Linter.FlatConfig} */
   export const globalConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
@@ -6,12 +12,6 @@ declare module "lib/globs/files" {
   export const javascriptFiles: string[];
   export const svelteFiles: string[];
   export const typescriptFiles: string[];
-}
-declare module "lib/globs/ignores" {
-  export const globalIgnores: string[];
-  export const javascriptIgnores: string[];
-  export const svelteIgnores: string[];
-  export const typescriptIgnores: string[];
 }
 declare module "lib/rules/base" {
   export const baseRules: {
