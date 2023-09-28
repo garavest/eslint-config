@@ -20,7 +20,7 @@ jobs:
           version: latest
           run_install: |
             - recursive: true
-              args: [--frozen-lockfile, --strict-peer-dependencies]
+              args: [--frozen-lockfile, --strict-peer-dependencies, --ignore-scripts]
       - name: git config
         run: |
           git config user.name "${GITHUB_ACTOR}"
