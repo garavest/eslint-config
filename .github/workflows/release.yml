@@ -29,12 +29,8 @@ jobs:
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Testing (Don't do this!!)
-        run: |
-          ls -al
-          git status
-      #- name: Do the release
-      #  run: pnpm run release --ci
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Do the release
+        run: pnpm run release --ci --no-git.requireCleanWorkingDir
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
