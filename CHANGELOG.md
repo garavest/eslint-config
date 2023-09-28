@@ -1,3 +1,7 @@
+
+
+## [2.0.1](https://github.com/garavest/eslint-config/compare/2.0.0...2.0.1) (2023-09-28)
+
 # Changelog
 
 ## [2.0.0](https://github.com/garavest/eslint-config/compare/1.0.2...2.0.0) (2023-09-28)
