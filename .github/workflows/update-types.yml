@@ -36,7 +36,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Install dependencies
-        run: pnpm recursive install --forzen-lockfile --strict-peer-dependencies
+        run: pnpm recursive install --frozen-lockfile --strict-peer-dependencies
       - name: Update types
         run: pnpm run build
       - name: Check for file changes

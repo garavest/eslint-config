@@ -32,6 +32,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
-        run: pnpm recursive install --forzen-lockfile --strict-peer-dependencies
+        run: pnpm recursive install --frozen-lockfile --strict-peer-dependencies
       - name: Run code quality checks
         run: pnpm run lint
