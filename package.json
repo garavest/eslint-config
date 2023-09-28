@@ -30,9 +30,10 @@
   ],
   "scripts": {
     "build": "tsc",
-    "lint": "npm run lint:code && npm run lint:format",
+    "lint": "pnpm run lint:code && pnpm run lint:format && pnpm run lint:markdown",
     "lint:code": "eslint .",
     "lint:format": "prettier -c .",
+    "lint:markdown": "markdownlint .",
     "prepare": "husky install",
     "release": "release-it",
     "test": "echo \"Error: no test specified\" && exit 1"
