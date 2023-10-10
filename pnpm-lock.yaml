@@ -42,7 +42,7 @@ devDependencies:
     version: 17.7.0
   '@garavest/prettier-config':
     specifier: ^1.0.1
-    version: 1.0.1(svelte@4.2.1)
+    version: 1.1.0(svelte@4.2.1)
   '@release-it/conventional-changelog':
     specifier: ^7.0.2
     version: 7.0.2(release-it@16.2.0)
@@ -321,8 +321,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-  /@garavest/prettier-config@1.0.1(svelte@4.2.1):
-    resolution: {integrity: sha512-29O00/X2W6xgaqWsWukTcj7iXr0pKyb48CfBzRwcDfRWMZ1qRUPY/KEKFvriGI3pzPK+zAHlkYk6lQ4Ize6KkQ==}
+  /@garavest/prettier-config@1.1.0(svelte@4.2.1):
+    resolution: {integrity: sha512-elsZeeDJETOg447MXSij465PUjPm23pWzf9yuw4dVRuNEXAQuByHvK009qkXOARcgbkRT6ajHALUN7fSjQ7XhA==}
     dependencies:
       prettier: 3.0.3
       prettier-plugin-svelte: 3.0.3(prettier@3.0.3)(svelte@4.2.1)
