@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.1.0](https://github.com/garavest/eslint-config/compare/2.0.1...2.1.0) (2023-12-10)
+
+
+### Features
+
+* added eslint-plugin-stylistic ([1b5f830](https://github.com/garavest/eslint-config/commit/1b5f8309e8b11503e4e1457497fa1d4cef1a302c))
+* re-added eslint-plugin-import ([006192c](https://github.com/garavest/eslint-config/commit/006192c664c3b0c458c9300240472617aa8ddd38))
+
+
+### Bug Fixes
+
+* fixed ignores for prettier config ([1199dda](https://github.com/garavest/eslint-config/commit/1199ddab51e738cd646731785ad79b3a17f73d07))
+* fixed typo in no-deprecated and order rules ([433a567](https://github.com/garavest/eslint-config/commit/433a5675582a4a4e45230fa7a047e5d81f4c75e3))
+* removed unused rules from Svelte config ([cdab4f8](https://github.com/garavest/eslint-config/commit/cdab4f8ef3f56d6aedbebdef6e460c3919fef24c))
+
 ## [2.0.1](https://github.com/garavest/eslint-config/compare/2.0.0...2.0.1) (2023-09-28)
 
 ## [2.0.0](https://github.com/garavest/eslint-config/compare/1.0.2...2.0.0) (2023-09-28)
