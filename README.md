@@ -58,11 +58,24 @@ You can bake your own framework support in or, optionally, we provide a config
 for Svelte that can be used with or without SvelteKit. To enable this, you can
 simply use the following snippet for the default config:
 
+> **NOTE**
+>
+> The prettier plugin does **_NOT_** work with svelte because it checks for the
+> parser which is not supported in flat configs. Therefore, you cannot use the
+> default config with svelte.
+
 ```js
 import { garavest } from "@garavest/eslint-config";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
-export default [...garavest.default, ...garavest.svelte];
+export default [
+  garavest.global,
+  garavest.import,
+  garavest.javascript,
+  garavest.typescript,
+  garavest.stylistic,
+  garavest.svelte
+];
 ```
 
 ## API
@@ -75,8 +88,10 @@ Our package exports the following:
 export const garavest = {
   default: defaultConfig,
   global: globalConfig,
+  import: importConfig,
   javascript: javascriptConfig,
   prettier: prettierConfig,
+  stylistic: stylisticConfig,
   svelte: svelteConfig,
   typescript: typescriptConfig
 };
