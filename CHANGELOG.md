@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/garavest/eslint-config/compare/2.1.0...2.1.1) (2023-12-10)
+
+
+### Bug Fixes
+
+* added ignores to stylistic config ([be24eaf](https://github.com/garavest/eslint-config/commit/be24eafb1856149f695a86ddb4a15d0024ba1bba))
+
 ## [2.1.0](https://github.com/garavest/eslint-config/compare/2.0.1...2.1.0) (2023-12-10)
 
 

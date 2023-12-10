@@ -1,6 +1,6 @@
 {
   "name": "@garavest/eslint-config",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A highly opinionated ESLint Config used by Garavest LLC for internal and public projects.",
   "keywords": [
     "eslint",
