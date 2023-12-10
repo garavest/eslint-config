@@ -1,4 +1,5 @@
 declare module "lib/globs/ignores" {
+    export const allIgnores: string[];
     export const globalIgnores: string[];
     export const javascriptIgnores: string[];
     export const svelteIgnores: string[];
@@ -6,7 +7,14 @@ declare module "lib/globs/ignores" {
 }
 declare module "lib/configs/global" {
     /** @type {import("eslint").Linter.FlatConfig} */
-    export const globalConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+    export const globalConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
+}
+declare module "lib/rules/plugins/import" {
+    export const importRules: any;
+}
+declare module "lib/configs/import" {
+    /** @type {import("eslint").Linter.FlatConfig} */
+    export const importConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "lib/globs/files" {
     export const javascriptFiles: string[];
@@ -56,20 +64,18 @@ declare module "lib/rules/base" {
         "no-iterator": string;
         "no-labels": string;
         "no-lone-blocks": string;
-        "no-mixed-operators": string;
         "no-multi-assign": string;
         "no-multi-str": string;
         "no-nested-ternary": string;
         "no-new": string;
         "no-new-func": string;
-        "no-new-object": string;
         "no-new-wrappers": string;
+        "no-object-constructor": string;
         "no-octal-escape": string;
         "no-param-reassign": string;
         "no-promise-executor-return": string;
         "no-proto": string;
         "no-return-assign": string;
-        "no-return-await": string;
         "no-script-url": string;
         "no-sequences": string;
         "no-template-curly-in-string": string;
@@ -105,7 +111,6 @@ declare module "lib/rules/base" {
         "require-await": string;
         "sort-keys": string;
         "sort-vars": string;
-        "spaced-comment": string;
         strict: string;
         "vars-on-top": string;
     };
@@ -120,29 +125,26 @@ declare module "lib/rules/javascript" {
         "no-shadow": string;
         "no-throw-literal": string;
         "no-useless-constructor": string;
-        "padding-line-between-statements": (string | {
-            blankLine: string;
-            next: string[];
-            prev: string;
-        } | {
-            blankLine: string;
-            next: string;
-            prev: string[];
-        } | {
-            blankLine: string;
-            next: string[];
-            prev: string[];
-        })[];
     };
 }
 declare module "lib/configs/javascript" {
     /** @type {import("eslint").Linter.FlatConfig} */
-    export const javascriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+    export const javascriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
+}
+declare module "lib/configs/prettier" {
+    /** @type {import("eslint").Linter.FlatConfig} */
+    export const prettierConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
+}
+declare module "lib/rules/plugins/stylistic" {
+    const _default: import("node_modules/.pnpm/@stylistic+eslint-plugin@1.5.0_eslint@8.55.0_typescript@5.3.3/node_modules/@stylistic/eslint-plugin/dist/dts/index").StylisticCustomizeOptions;
+    export default _default;
+}
+declare module "lib/configs/stylistic" {
+    /** @type {import("eslint").Linter.FlatConfig} */
+    export const stylisticConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "lib/rules/plugins/svelte" {
     export const svelteRules: {
-        "import/extensions": string;
-        "import/no-unresolved": string;
         "svelte/no-target-blank": string;
         'svelte/comment-directive': string;
         'svelte/no-at-debug-tags': string;
@@ -162,53 +164,10 @@ declare module "lib/rules/plugins/svelte" {
 }
 declare module "lib/rules/typescript/base" {
     export const typescriptBaseRules: {
-        "@typescript-eslint/array-type": (string | {
-            default: string;
-        })[];
-        "@typescript-eslint/ban-ts-comment": string;
-        "@typescript-eslint/ban-types": (string | {
-            extendDefaults: boolean;
-            types: {
-                Boolean: {
-                    fixWith: string;
-                    message: string;
-                };
-                Function: {
-                    message: string;
-                };
-                Number: {
-                    fixWith: string;
-                    message: string;
-                };
-                Object: {
-                    message: string;
-                };
-                String: {
-                    fixWith: string;
-                    message: string;
-                };
-                Symbol: {
-                    fixWith: string;
-                    message: string;
-                };
-                "{}": {
-                    message: string;
-                };
-            };
-        })[];
-        "@typescript-eslint/class-literal-property-style": string[];
-        "@typescript-eslint/consistent-indexed-object-style": string;
-        "@typescript-eslint/consistent-type-assertions": (string | {
-            assertionStyle: string;
-            objectLiteralTypeAssertions: string;
-        })[];
         "@typescript-eslint/consistent-type-exports": string;
-        "@typescript-eslint/consistent-type-imports": (string | {
-            disallowTypeAnnotations: boolean;
-            prefer: string;
-        })[];
+        "@typescript-eslint/consistent-type-imports": string;
         "@typescript-eslint/default-param-last": string;
-        "@typescript-eslint/dot-notation": string;
+        "@typescript-eslint/explicit-function-return-type": string;
         "@typescript-eslint/explicit-member-accessibility": string;
         "@typescript-eslint/member-ordering": (string | {
             default: {
@@ -217,71 +176,15 @@ declare module "lib/rules/typescript/base" {
             };
         })[];
         "@typescript-eslint/method-signature-style": string;
-        "@typescript-eslint/naming-convention": (string | {
-            format: string[];
-            selector: string;
-            modifiers?: undefined;
-            custom?: undefined;
-        } | {
-            format: any;
-            modifiers: string[];
-            selector: string[];
-            custom?: undefined;
-        } | {
-            custom: {
-                match: boolean;
-                regex: string;
-            };
-            format: string[];
-            selector: string;
-            modifiers?: undefined;
-        })[];
-        "@typescript-eslint/no-base-to-string": string;
-        "@typescript-eslint/no-confusing-non-null-assertion": string;
-        "@typescript-eslint/no-confusing-void-expression": string;
-        "@typescript-eslint/no-dynamic-delete": string;
-        "@typescript-eslint/no-extraneous-class": string;
-        "@typescript-eslint/no-invalid-this": string;
-        "@typescript-eslint/no-invalid-void-type": string;
+        "@typescript-eslint/naming-convention": string;
         "@typescript-eslint/no-loop-func": string;
-        "@typescript-eslint/no-meaningless-void-operator": string;
-        "@typescript-eslint/no-non-null-asserted-nullish-coalescing": string;
         "@typescript-eslint/no-require-imports": string;
         "@typescript-eslint/no-shadow": string;
-        "@typescript-eslint/no-unnecessary-boolean-literal-compare": string;
-        "@typescript-eslint/no-unnecessary-condition": string;
         "@typescript-eslint/no-unnecessary-qualifier": string;
-        "@typescript-eslint/no-unnecessary-type-arguments": string;
-        "@typescript-eslint/no-useless-constructor": string;
-        "@typescript-eslint/non-nullable-type-assertion-style": string;
-        "@typescript-eslint/padding-line-between-statements": (string | {
-            blankLine: string;
-            next: string[];
-            prev: string;
-        } | {
-            blankLine: string;
-            next: string;
-            prev: string[];
-        } | {
-            blankLine: string;
-            next: string[];
-            prev: string[];
-        })[];
-        "@typescript-eslint/prefer-for-of": string;
-        "@typescript-eslint/prefer-includes": string;
-        "@typescript-eslint/prefer-literal-enum-member": string;
-        "@typescript-eslint/prefer-nullish-coalescing": string;
-        "@typescript-eslint/prefer-optional-chain": string;
-        "@typescript-eslint/prefer-reduce-type-parameter": string;
         "@typescript-eslint/prefer-regexp-exec": string;
-        "@typescript-eslint/prefer-return-this-type": string;
-        "@typescript-eslint/prefer-string-starts-ends-with": string;
-        "@typescript-eslint/prefer-ts-expect-error": string;
         "@typescript-eslint/promise-function-async": string;
         "@typescript-eslint/require-array-sort-compare": string;
-        "@typescript-eslint/return-await": string;
         "@typescript-eslint/switch-exhaustiveness-check": string;
-        "@typescript-eslint/unified-signatures": string;
     };
 }
 declare module "lib/rules/typescript/overrides" {
@@ -301,30 +204,30 @@ declare module "lib/rules/typescript/overrides" {
 }
 declare module "lib/configs/svelte" {
     /** @type {import("eslint").Linter.FlatConfig} */
-    export const svelteConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
-}
-declare module "lib/configs/prettier" {
-    /** @type {import("eslint").Linter.FlatConfig} */
-    export const prettierConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+    export const svelteConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "lib/configs/typescript" {
     /** @type {import("eslint").Linter.FlatConfig} */
-    export const typescriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig;
+    export const typescriptConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig;
 }
 declare module "index" {
     export namespace garavest {
         export { defaultConfig as default };
         export { globalConfig as global };
+        export { importConfig as import };
         export { javascriptConfig as javascript };
         export { prettierConfig as prettier };
+        export { stylisticConfig as stylistic };
         export { svelteConfig as svelte };
         export { typescriptConfig as typescript };
     }
     /** @type {import("eslint").Linter.FlatConfig[]} */
-    const defaultConfig: import("node_modules/.pnpm/@types+eslint@8.44.3/node_modules/@types/eslint/index").Linter.FlatConfig[];
+    const defaultConfig: import("node_modules/.pnpm/@types+eslint@8.44.8/node_modules/@types/eslint/index").Linter.FlatConfig[];
     import { globalConfig } from "lib/configs/global.js";
+    import { importConfig } from "lib/configs/import.js";
     import { javascriptConfig } from "lib/configs/javascript.js";
     import { prettierConfig } from "lib/configs/prettier.js";
+    import { stylisticConfig } from "lib/configs/stylistic.js";
     import { svelteConfig } from "lib/configs/svelte.js";
     import { typescriptConfig } from "lib/configs/typescript.js";
     export {};
